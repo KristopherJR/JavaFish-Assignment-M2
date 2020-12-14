@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ update()
+comment0.text=\r\n\ METHOD\:\ change\ to\ IDisplayObject\ for\ next\ frame,\ called\ by\ ICore\ instance\ on\ each\ update\r\n\ \r\n
+numComments=1

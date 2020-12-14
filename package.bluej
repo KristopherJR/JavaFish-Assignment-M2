@@ -1,0 +1,24 @@
+#BlueJ package file
+objectbench.height=100
+objectbench.width=932
+package.editor.height=400
+package.editor.width=834
+package.editor.x=686
+package.editor.y=135
+package.numDependencies=0
+package.numTargets=2
+package.showExtends=true
+package.showUses=true
+project.charset=windows-1252
+target1.height=62
+target1.name=UserCode
+target1.type=PackageTarget
+target1.width=80
+target1.x=200
+target1.y=10
+target2.height=62
+target2.name=Framework
+target2.type=PackageTarget
+target2.width=90
+target2.x=390
+target2.y=10

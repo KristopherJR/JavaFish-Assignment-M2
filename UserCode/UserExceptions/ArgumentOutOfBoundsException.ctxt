@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=message
+comment0.target=ArgumentOutOfBoundsException(java.lang.String)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ ArgumentOutOfBoundsException\r\n\ \r\n\ @param\ message\ a\ string\ containing\ details\ of\ the\ exception.\r\n
+numComments=1

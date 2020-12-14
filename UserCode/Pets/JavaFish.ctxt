@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=scale
+comment0.target=JavaFish(double)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ JavaFish,\ initialised\ to\ the\ position\ at\ xpos,ypos,zpos\r\n\ \r\n\ @param\ xpos\ \ \ \ \ \ The\ starting\ x\ position\ of\ the\ fish\ in\ the\ aquarium.\r\n\ @param\ ypos\ \ \ \ \ \ The\ starting\ y\ position\ of\ the\ fish\ in\ the\ aquarium.\r\n\ @param\ scale\ \ \ \ \ The\ scale\ (size)\ of\ the\ fish.\r\n
+numComments=1
