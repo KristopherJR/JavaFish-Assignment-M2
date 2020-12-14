@@ -1,11 +1,13 @@
 package Framework;
-
+import UserCode.Exceptions.*;
 
 /**
  * The DisplayObject contains all the data for displaying something by a Core instance.
  * 
- * @author (Marc Price) 
- * @version (24.07.2018)
+ * Programmed by Dr Marc Price, exception handling functionality added by Kristopher Randle.
+ * 
+ * @author Marc Price & Kristopher Randle 
+ * @version 14-12-2020
  */
 public class DisplayObject implements IDisplayObject
 {
@@ -31,12 +33,21 @@ public class DisplayObject implements IDisplayObject
     /**
      * Constructor for objects of class DisplayObject
      */
-    public DisplayObject(String model, String tex, double scale)
+    public DisplayObject(String model, String tex, double scale) throws OutOfBoundsException
     {
-        // initialise instance variables
-        this.scale = scale;
-        this.model = model;
-        this.texture = tex;
+        // IF the received scale is less than 1/20th the window width, or greater than 1/10th the window width THEN throw exception.
+        // ELSE scale is within bounds, so proceed with the construction of the DisplayObject.
+        if((scale < 0.4)||(scale > 0.8))
+        {
+            throw new OutOfBoundsException("Scale must be greater than or equal to 0.4(1/20th window width), and less than or equal to 0.8(1/10th window width).");
+        }
+        else
+        {
+            // Scale is within acceptable range, so initialise instance variables.
+            this.scale = scale;
+            this.model = model;
+            this.texture = tex;
+        }
     }
 
     

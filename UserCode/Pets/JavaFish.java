@@ -20,11 +20,11 @@ public class JavaFish extends Pet
      * 
      * @param xpos      The starting x position of the fish in the aquarium.
      * @param ypos      The starting y position of the fish in the aquarium.
-     * @param scale     The scale (size) of the fish.
+     * @param scale     The scale (size) of the fish. Must be 0.4 <= scale <= 0.8.
      */
     public JavaFish(double scale)
     {
-        // INITIALISE instance variables
+        // PASS the model, texture and scale to the superclass Pet constructor:
         super("models/billboard/billboard.obj", "textures/javaFish/JavaFish.png", scale);
         // INITIALISE position and speed of fish
         super.setPosition(); //set the x, y of the fish to a random location in the aquarium.
