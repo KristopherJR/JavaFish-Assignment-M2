@@ -37,6 +37,7 @@ public class DisplayObject implements IDisplayObject
     {
         // IF the received scale is less than 1/20th the window width, or greater than 1/10th the window width THEN throw exception.
         // ELSE scale is within bounds, so proceed with the construction of the DisplayObject.
+
         if((scale < 0.4)||(scale > 0.8))
         {
             throw new OutOfBoundsException("Scale must be greater than or equal to 0.4(1/20th window width), and less than or equal to 0.8(1/10th window width).");
@@ -49,7 +50,6 @@ public class DisplayObject implements IDisplayObject
             this.texture = tex;
         }
     }
-
     
     /**
      * METHOD: change to DisplayObject for next frame, called by Core class on each update

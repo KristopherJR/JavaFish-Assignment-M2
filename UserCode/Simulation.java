@@ -29,12 +29,19 @@ public class Simulation
     // DECLARE a reference to the instance of 'List<IDisplayObject>', call it '_displayObjects'. Used to store all visual objects:
     private List<IDisplayObject> _displayObjects;
 
-    public static void main(String[]args) throws OutOfBoundsException
+    public static void main(String[]args)
     {
         Simulation sim = new Simulation();
-        sim.populateObjectArray();
-        sim.populate();
-        sim.run(); 
+        try
+        {
+            sim.populateObjectArray();
+            sim.populate();
+            sim.run();
+        }
+        catch(OutOfBoundsException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
     
     /**
@@ -57,7 +64,7 @@ public class Simulation
     {
         //INITIALISE the objects cast to type IDisplayObject
         IDisplayObject jf1 = new JavaFish(0.2); //Create a 'JavaFish' called 'jf1', store it as an 'IDisplayObject'. Give it the specified scale.
-        
+            
         //STORE the newly initalized objects in the _displayObjects List.
         _displayObjects.add(jf1); //add jf1 to the _displayObjects List.
     }

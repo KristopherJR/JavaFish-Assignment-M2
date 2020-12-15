@@ -27,6 +27,7 @@ public class JavaFish extends Pet
     {
         // PASS the model, texture and scale to the superclass Pet constructor:
         super("models/billboard/billboard.obj", "textures/javaFish/JavaFish.png", scale);
+
         // INITIALISE position and speed of fish
         super.setPosition(); //set the x, y of the fish to a random location in the aquarium.
         super.setOrientation(0,-90,0);
