@@ -1,5 +1,6 @@
 package UserCode.Pets;
 import Framework.DisplayObject;
+import UserCode.Exceptions.*;
 
 /**
  * Pet is a subclass of display object. All models in the aquarium will inherit the Pet class and pass their characteristics into it.
@@ -15,7 +16,8 @@ public abstract class Pet extends DisplayObject
     public static double SPEED; //used to store the original unchanged randomly generated speed.
     protected double speed; //The actual speed of the Pet.
     protected boolean direction; //Used to determine the direction the fish is heading across the screen. If True, it's heading East, If False, It's heading west.
-
+    protected double scale; //Stores the scale of the Pet provided on creation.
+    
     /**
      * Constructor for objects of class Pet.
      * Calls the constructor of its parent class DisplayObject, passing in parameters provided by each child of the Pet class.
@@ -24,9 +26,10 @@ public abstract class Pet extends DisplayObject
      * @param tex     The texture, as passed by the child class.
      * @param scale     The scale of the pet, as passed by the child class.
      */
-    public Pet(String model, String tex, double scale)
+    public Pet(String model, String tex, double scale) throws OutOfBoundsException
     {
        super(model, tex, scale); // model, texture and scale provided by each child class.
+       this.scale = scale;
        this.direction = true; //setting the fishes default direction as east.
     }
     
@@ -105,6 +108,17 @@ public abstract class Pet extends DisplayObject
         this.rotateX = x;
         this.rotateY = y;
         this.rotateZ = z;
+    }
+    
+    /**
+     * METHOD: GET the scale of the Pet.
+     * 
+     * @return      The scale of the Pet. 
+     */
+    protected double getScale()
+    {
+        // GET scale and return it:
+        return scale;
     }
     
     /**

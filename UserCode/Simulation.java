@@ -4,6 +4,7 @@ import env3d.Env;
 import java.util.*;
 import Framework.*;
 import UserCode.Pets.*;
+import UserCode.Exceptions.*;
 
 /**
  * Simulation is the top-level class for the Aquarium simulation.
@@ -28,7 +29,7 @@ public class Simulation
     // DECLARE a reference to the instance of 'List<IDisplayObject>', call it '_displayObjects'. Used to store all visual objects:
     private List<IDisplayObject> _displayObjects;
 
-    public static void main(String[]args)
+    public static void main(String[]args) throws OutOfBoundsException
     {
         Simulation sim = new Simulation();
         sim.populateObjectArray();
@@ -52,14 +53,12 @@ public class Simulation
      * Called on running the static main method.
      *
      */    
-    public void populateObjectArray()
+    public void populateObjectArray() throws OutOfBoundsException
     {
         //INITIALISE the objects cast to type IDisplayObject
+        IDisplayObject jf1 = new JavaFish(0.2); //Create a 'JavaFish' called 'jf1', store it as an 'IDisplayObject'. Give it the specified scale.
         
-        IDisplayObject jf1 = new JavaFish(0.4); //Create a 'JavaFish' called 'jf1', store it as an 'IDisplayObject'. Give it the specified scale.
-        
-        //STORE the newly initalized objects in the _displayObjects List
-        
+        //STORE the newly initalized objects in the _displayObjects List.
         _displayObjects.add(jf1); //add jf1 to the _displayObjects List.
     }
 
