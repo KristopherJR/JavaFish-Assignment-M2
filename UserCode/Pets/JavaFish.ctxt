@@ -1,5 +1,8 @@
 #BlueJ class context
 comment0.params=scale
 comment0.target=JavaFish(double)
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ JavaFish,\ initialised\ to\ the\ position\ at\ xpos,ypos,zpos\r\n\ \r\n\ @param\ xpos\ \ \ \ \ \ The\ starting\ x\ position\ of\ the\ fish\ in\ the\ aquarium.\r\n\ @param\ ypos\ \ \ \ \ \ The\ starting\ y\ position\ of\ the\ fish\ in\ the\ aquarium.\r\n\ @param\ scale\ \ \ \ \ The\ scale\ (size)\ of\ the\ fish.\ Must\ be\ 0.4\ <\=\ scale\ <\=\ 0.8.\r\n
-numComments=1
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ JavaFish,\ scale\ is\ passed\ to\ the\ Parent\ class,\ Pet.\ A\ JavaFish's\ position,\ orientation\ and\ speed\ is\ set\ by\ calling\ methods\ in\ the\ super\ class\ (Pet).\r\n\ \r\n\ @param\ scale\ \ \ \ \ The\ scale\ (size)\ of\ the\ fish.\ Must\ be\ 0.225\ <\=\ scale\ <\=\ 0.45.\ Passed\ up\ to\ Pet.\r\n
+comment1.params=
+comment1.target=JavaFish()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ JavaFish.\ This\ constructor\ is\ called\ if\ the\ user\ does\ not\ provide\ a\ scale\ for\ the\ JavaFish,\ allowing\ it\ to\ be\ randomly\ assigned\ in\ a\ range.\r\n\ A\ JavaFish's\ position,\ orientation,\ and\ speed\ is\ set\ by\ calling\ methods\ in\ the\ super\ class\ (Pet).\r\n\r\n
+numComments=2

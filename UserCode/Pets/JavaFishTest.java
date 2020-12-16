@@ -18,8 +18,8 @@ import org.junit.Test;
  * @version 16-12-2020
  * 
  * Test Conditions:
- * JavaFish(): CHECK that an OutOfBoundsException is thrown if an invalid scale outside the range 0.4 <= scale <= 0.8 is provided.
- * JavaFish(): CHECK that the scale has been automatically set between 0.005 - 0.05.
+ * JavaFish(): CHECK that an OutOfBoundsException is thrown if an invalid scale outside the range 0.225 <= scale <= 0.45 is provided.
+ * JavaFish(): CHECK that the speed has been automatically set between 0.005 - 0.05.
  */
 public class JavaFishTest
 {
@@ -31,12 +31,12 @@ public class JavaFishTest
     }
     
     /**
-     * TEST CONDITION: CHECK that an OutOfBoundsException is thrown if an invalid scale outside the range 0.4 <= scale <= 0.8 is provided.
+     * TEST CONDITION: CHECK that an OutOfBoundsException is thrown if an invalid scale outside the range 0.225 <= scale <= 0.45 is provided.
      * 
      * Tests:
-     * scaleTest1: CHECK that an OutOfBoundsException is NOT thrown if 0.4 <= scale <= 0.8 is provided.
-     * scaleTest2: CHECK that an OutOfBoundsException is thrown if scale < 0.4.
-     * scaleTest3: CHECK that an OutOfBoundsException is thrown if scale > 0.8.
+     * scaleTest1: CHECK that an OutOfBoundsException is NOT thrown if 0.225 <= scale <= 0.45 is provided.
+     * scaleTest2: CHECK that an OutOfBoundsException is thrown if scale < 0.225.
+     * scaleTest3: CHECK that an OutOfBoundsException is thrown if scale > 0.45.
      */
     @Test
     public void scaleTest1()
@@ -44,7 +44,7 @@ public class JavaFishTest
         try
         {
             //CREATE a new JavaFish of type IDisplayObject, call it jf1 and give it a valid scale:
-            IDisplayObject jf1 = new JavaFish(0.5);
+            IDisplayObject jf1 = new JavaFish(0.225);
         }
         catch(OutOfBoundsException e)
         {
@@ -61,7 +61,7 @@ public class JavaFishTest
         try
         {
             //CREATE a new JavaFish of type IDisplayObject, call it jf1 and give it an invalid scale which is too small:
-            IDisplayObject jf1 = new JavaFish(0.2);
+            IDisplayObject jf1 = new JavaFish(0.1);
         }
         catch(OutOfBoundsException e)
         {
@@ -69,7 +69,7 @@ public class JavaFishTest
             pass = true;
         }
         //FAIL if an OutOfBoundsException is NOT thrown:
-        assertTrue("OutOfBoundsException was NOT thrown when scale was too small (below 0.4)", pass);
+        assertTrue("OutOfBoundsException was NOT thrown when scale was too small (below 0.225)", pass);
     }
     
     @Test
@@ -80,7 +80,7 @@ public class JavaFishTest
         try
         {
             //CREATE a new JavaFish of type IDisplayObject, call it jf1 and give it an invalid scale which is too small:
-            IDisplayObject jf1 = new JavaFish(0.9);
+            IDisplayObject jf1 = new JavaFish(0.5);
         }
         catch(OutOfBoundsException e)
         {
@@ -88,7 +88,7 @@ public class JavaFishTest
             pass = true;
         }
         //FAIL if an OutOfBoundsException is NOT thrown:
-        assertTrue("OutOfBoundsException was NOT thrown when scale was too big (above 0.8)", pass);
+        assertTrue("OutOfBoundsException was NOT thrown when scale was too big (above 0.45)", pass);
     }
     
     /**

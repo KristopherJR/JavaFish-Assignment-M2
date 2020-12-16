@@ -4,7 +4,7 @@ comment0.target=JavaFishTest()
 comment0.text=\r\n\ Default\ constructor\ for\ test\ class\ JavaFishTest\r\n
 comment1.params=
 comment1.target=void\ scaleTest1()
-comment1.text=\r\n\ TEST\ CONDITION\:\ CHECK\ that\ an\ OutOfBoundsException\ is\ thrown\ if\ an\ invalid\ scale\ outside\ the\ range\ 0.4\ <\=\ scale\ <\=\ 0.8\ is\ provided.\r\n\ \r\n\ Tests\:\r\n\ scaleTest1\:\ CHECK\ that\ an\ OutOfBoundsException\ is\ NOT\ thrown\ if\ 0.4\ <\=\ scale\ <\=\ 0.8\ is\ provided.\r\n\ scaleTest2\:\ CHECK\ that\ an\ OutOfBoundsException\ is\ thrown\ if\ scale\ <\ 0.4.\r\n\ scaleTest3\:\ CHECK\ that\ an\ OutOfBoundsException\ is\ thrown\ if\ scale\ >\ 0.8.\r\n
+comment1.text=\r\n\ TEST\ CONDITION\:\ CHECK\ that\ an\ OutOfBoundsException\ is\ thrown\ if\ an\ invalid\ scale\ outside\ the\ range\ 0.225\ <\=\ scale\ <\=\ 0.45\ is\ provided.\r\n\ \r\n\ Tests\:\r\n\ scaleTest1\:\ CHECK\ that\ an\ OutOfBoundsException\ is\ NOT\ thrown\ if\ 0.225\ <\=\ scale\ <\=\ 0.45\ is\ provided.\r\n\ scaleTest2\:\ CHECK\ that\ an\ OutOfBoundsException\ is\ thrown\ if\ scale\ <\ 0.225.\r\n\ scaleTest3\:\ CHECK\ that\ an\ OutOfBoundsException\ is\ thrown\ if\ scale\ >\ 0.45.\r\n
 comment2.params=
 comment2.target=void\ scaleTest2()
 comment3.params=

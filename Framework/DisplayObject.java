@@ -34,28 +34,35 @@ public class DisplayObject implements IDisplayObject
 
     /**
      * Constructor for objects of class DisplayObject
+     * 
+     * @param model    The model of the pet, as passed by the child class.
+     * @param tex     The texture, as passed by the child class.
+     * @param scale     The scale of the pet, as passed by the child class.
+     * 
+     * @throws OutOfBoundsException
      */
     public DisplayObject(String model, String tex, double scale) throws OutOfBoundsException
     {
         // IF the received scale is less than 1/20th the window width, or greater than 1/10th the window width THEN throw exception.
-        // ELSE scale is within bounds, so proceed with the construction of the DisplayObject.
-
-        if((scale < 0.4)||(scale > 0.8))
+        if((scale < 0.225)||(scale > 0.45))
         {
-            throw new OutOfBoundsException("Scale must be greater than or equal to 0.4(1/20th window width), and less than or equal to 0.8(1/10th window width).");
+            throw new OutOfBoundsException("Scale must be greater than or equal to 0.225(1/20th window width), and less than or equal to 0.45(1/10th window width).");
         }
+        // ELSE scale is within bounds, so proceed with the construction of the DisplayObject.
         else
         {
             // Scale is within acceptable range, so initialise scale instance variable.
             this.scale = scale;
         }
         
+        //CALL this DisplayObjects validateModel method, to check that the model provided is a valid image file:
         if(this.validateModel(model) == true)
         {
             // VALIDATE provided String 'model' is a .obj file before initalising the object with that model.
             this.model = model;
         }
         
+        //CALL this DisplayObjects validateTexture method, to check that the texture provided is a valid image file:
         if(this.validateTexture(tex) == true)
         {
             // VALIDATE provided String 'tex' is a .png or .jpg file before initalising the object with that texture.
@@ -64,48 +71,64 @@ public class DisplayObject implements IDisplayObject
     }
     
     /**
-     * METHOD: Used to check that the String model that was provided is an image type.
+     * METHOD: Used to check that the String model that was provided is an accepted image type.
+     * 
+     * @param m     The model filepath that was provided on creation of the DisplayObject.
+     * 
+     * @throws InvalidImageFileException
      *
-     * @return      boolean
+     * @return      A true boolean value if the instantiated model is valid.
      */
     public boolean validateModel(String m) throws InvalidImageFileException
     {
-           //CREATE a file and check that the file is a valid type.
-           if(m.endsWith(".obj"))
-           {
-               return true;
-           }
-           else
-           {
-               //THROW an InvalidImageFileException.
-               throw new InvalidImageFileException("The given Filepath does not present a model ending with .obj.");
-           }
+        //CREATE a file and check that the file is a valid type:
+        if(m.endsWith(".obj"))
+        {
+            return true;
+        }
+        else
+        {
+            //THROW an InvalidImageFileException if it isn't a valid type:
+            throw new InvalidImageFileException("The given Filepath does not present a model ending with .obj.");
+        }
     }
     
     /**
-     * METHOD: Used to check that the String model that was provided is an image type.
-     * @return      boolean
+     * METHOD: Used to check that the String model that was provided is an accepted image type.
+     * 
+     * @param t     The texture filepath that was provided on creation of the DisplayObject.
+     * 
+     * @throws InvalidImageFileException
+     * 
+     * @return      A true boolean value if the instantiated model is valid.
      */
     public boolean validateTexture(String t) throws InvalidImageFileException
     {
-           //CREATE a file and check that the file is a valid type.
-           if(t.endsWith(".png"))
-           {
-               return true;
-           }
-           else if(t.endsWith(".jpg"))
-           {
-               return true;
-           }
-           else
-           {
-               //THROW an InvalidImageFileException.
-               throw new InvalidImageFileException("The given Filepath does not present a texture ending with .png or .jpg.");
-           }
+        //CREATE a file and check that the file is a valid type:
+        if(t.endsWith(".png"))
+        {
+            return true;
+        }
+        else if(t.endsWith(".jpg"))
+        {
+            return true;
+        }
+        else
+        {
+            //THROW an InvalidImageFileException if it isn't a valid type:
+            throw new InvalidImageFileException("The given Filepath does not present a texture ending with .png or .jpg.");
+        }
     }
+    
+    /**
+     * METHOD: GET the model of the DisplayObject.
+     * 
+     * @return      The model of the DisplayObject. 
+     */
     
     public String getModel()
     {
+        // GET model and return it:
         return model;
     }
     

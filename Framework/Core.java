@@ -125,8 +125,6 @@ public class Core implements ICore
         // Return reference to the environment:
         return _world;
     }
-    
-    
 
     /**
      * METHOD: destroy the 3D world.
