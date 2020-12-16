@@ -8,7 +8,7 @@ package UserCode.Exceptions;
  * @author Kristopher Randle & Marc Price
  * @version 14-12-2020
  */
-public class OutOfBoundsException extends Exception
+public class OutOfBoundsException extends RuntimeException
 {
     /**
      * Constructor for objects of class OutOfBoundsException

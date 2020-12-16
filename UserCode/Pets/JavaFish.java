@@ -23,7 +23,7 @@ public class JavaFish extends Pet
      * @param ypos      The starting y position of the fish in the aquarium.
      * @param scale     The scale (size) of the fish. Must be 0.4 <= scale <= 0.8.
      */
-    public JavaFish(double scale) throws OutOfBoundsException
+    public JavaFish(double scale)
     {
         // PASS the model, texture and scale to the superclass Pet constructor:
         super("models/billboard/billboard.obj", "textures/javaFish/JavaFish.png", scale);

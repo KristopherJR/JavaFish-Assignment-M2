@@ -35,7 +35,7 @@ public class DisplayObject implements IDisplayObject
     /**
      * Constructor for objects of class DisplayObject
      */
-    public DisplayObject(String model, String tex, double scale) throws OutOfBoundsException, InvalidImageFileException
+    public DisplayObject(String model, String tex, double scale) throws OutOfBoundsException
     {
         // IF the received scale is less than 1/20th the window width, or greater than 1/10th the window width THEN throw exception.
         // ELSE scale is within bounds, so proceed with the construction of the DisplayObject.

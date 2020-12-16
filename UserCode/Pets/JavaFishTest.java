@@ -19,6 +19,7 @@ import org.junit.Test;
  * 
  * Test Conditions:
  * JavaFish(): CHECK that an OutOfBoundsException is thrown if an invalid scale outside the range 0.4 <= scale <= 0.8 is provided.
+ * JavaFish(): CHECK that the scale has been automatically set between 0.005 - 0.05.
  */
 public class JavaFishTest
 {
@@ -88,6 +89,30 @@ public class JavaFishTest
         }
         //FAIL if an OutOfBoundsException is NOT thrown:
         assertTrue("OutOfBoundsException was NOT thrown when scale was too big (above 0.8)", pass);
+    }
+    
+    /**
+     * TEST CONDITION: CHECK that the scale has been automatically set between 0.005 - 0.05.
+     * 
+     * Tests:
+     * speedTest: Initialise a JavaFish, then check that they aren't being initalized with a speed outside the range. If they are, test should FAIL.
+     */
+
+    @Test
+    public void speedTest()
+    {
+        //CREATE a new JavaFish with a valid scale, call it jf1:
+        JavaFish jf1 = new JavaFish(0.4);
+        try
+        {
+            //RUN validateSpeed(), which will throw an exception if the speed isn't in the correct range:
+            jf1.validateSpeed();
+        }
+        catch(OutOfBoundsException e)
+        {
+            //FAIL if an OutOfBoundsException is thrown:
+            fail(e.getMessage() + " The speed assigned was: " + jf1.getSpeed());
+        } 
     }
     
     /**

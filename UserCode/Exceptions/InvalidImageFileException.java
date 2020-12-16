@@ -6,7 +6,7 @@ package UserCode.Exceptions;
  * @author Kristopher Randle
  * @version 16-12-2020
  */
-public class InvalidImageFileException extends Exception
+public class InvalidImageFileException extends RuntimeException
 {
     /**
      * Constructor for objects of class InvalidImageFileException

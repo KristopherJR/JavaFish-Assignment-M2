@@ -26,11 +26,12 @@ public abstract class Pet extends DisplayObject
      * @param tex     The texture, as passed by the child class.
      * @param scale     The scale of the pet, as passed by the child class.
      */
-    public Pet(String model, String tex, double scale) throws OutOfBoundsException
+    public Pet(String model, String tex, double scale)
     {
        super(model, tex, scale); // model, texture and scale provided by each child class.
        this.scale = scale;
        this.direction = true; //setting the fishes default direction as east.
+       
     }
     
     /**
@@ -47,6 +48,8 @@ public abstract class Pet extends DisplayObject
         // SET the value of _speed to a random speed in the specified client range.
         SPEED = Math.random() * (MAX - MIN) + MIN; //The inital speed is stored in a final double variable. This is needed later for reference when switching directions in the aquarium.
         speed = SPEED; //set the speed to its initial start-up value.
+        
+
     }
     
     /**
@@ -119,6 +122,25 @@ public abstract class Pet extends DisplayObject
     {
         // GET scale and return it:
         return scale;
+    }
+    
+    /**
+     * METHOD: GET the speed of the Pet.
+     * 
+     * @return      The speed of the Pet. 
+     */
+    public double getSpeed()
+    {
+        // GET speed and return it:
+        return SPEED;
+    }
+    
+    public void validateSpeed() throws OutOfBoundsException
+    {
+        if((speed < 0.005) || (speed > 0.05))
+        {
+            throw new OutOfBoundsException("JavaFish's are being randomly assigned a speed value outside of their specified range (0.005 - 0.05)");
+        }        
     }
     
     /**

@@ -60,7 +60,7 @@ public class Simulation
      * Called on running the static main method.
      *
      */    
-    public void populateObjectArray() throws OutOfBoundsException
+    public void populateObjectArray()
     {
         //INITIALISE the objects cast to type IDisplayObject
         IDisplayObject jf1 = new JavaFish(0.4); //Create a 'JavaFish' called 'jf1', store it as an 'IDisplayObject'. Give it the specified scale.
