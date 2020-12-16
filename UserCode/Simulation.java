@@ -63,7 +63,7 @@ public class Simulation
     public void populateObjectArray() throws OutOfBoundsException
     {
         //INITIALISE the objects cast to type IDisplayObject
-        IDisplayObject jf1 = new JavaFish(0.2); //Create a 'JavaFish' called 'jf1', store it as an 'IDisplayObject'. Give it the specified scale.
+        IDisplayObject jf1 = new JavaFish(0.4); //Create a 'JavaFish' called 'jf1', store it as an 'IDisplayObject'. Give it the specified scale.
             
         //STORE the newly initalized objects in the _displayObjects List.
         _displayObjects.add(jf1); //add jf1 to the _displayObjects List.

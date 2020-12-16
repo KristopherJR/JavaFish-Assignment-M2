@@ -1,5 +1,7 @@
 package Framework;
 import UserCode.Exceptions.*;
+import javax.activation.MimetypesFileTypeMap;
+import java.io.File;
 
 /**
  * The DisplayObject contains all the data for displaying something by a Core instance.
@@ -33,7 +35,7 @@ public class DisplayObject implements IDisplayObject
     /**
      * Constructor for objects of class DisplayObject
      */
-    public DisplayObject(String model, String tex, double scale) throws OutOfBoundsException
+    public DisplayObject(String model, String tex, double scale) throws OutOfBoundsException, InvalidImageFileException
     {
         // IF the received scale is less than 1/20th the window width, or greater than 1/10th the window width THEN throw exception.
         // ELSE scale is within bounds, so proceed with the construction of the DisplayObject.
@@ -44,11 +46,67 @@ public class DisplayObject implements IDisplayObject
         }
         else
         {
-            // Scale is within acceptable range, so initialise instance variables.
+            // Scale is within acceptable range, so initialise scale instance variable.
             this.scale = scale;
+        }
+        
+        if(this.validateModel(model) == true)
+        {
+            // VALIDATE provided String 'model' is a .obj file before initalising the object with that model.
             this.model = model;
+        }
+        
+        if(this.validateTexture(tex) == true)
+        {
+            // VALIDATE provided String 'tex' is a .png or .jpg file before initalising the object with that texture.
             this.texture = tex;
         }
+    }
+    
+    /**
+     * METHOD: Used to check that the String model that was provided is an image type.
+     *
+     * @return      boolean
+     */
+    public boolean validateModel(String m) throws InvalidImageFileException
+    {
+           //CREATE a file and check that the file is a valid type.
+           if(m.endsWith(".obj"))
+           {
+               return true;
+           }
+           else
+           {
+               //THROW an InvalidImageFileException.
+               throw new InvalidImageFileException("The given Filepath does not present a model ending with .obj.");
+           }
+    }
+    
+    /**
+     * METHOD: Used to check that the String model that was provided is an image type.
+     * @return      boolean
+     */
+    public boolean validateTexture(String t) throws InvalidImageFileException
+    {
+           //CREATE a file and check that the file is a valid type.
+           if(t.endsWith(".png"))
+           {
+               return true;
+           }
+           else if(t.endsWith(".jpg"))
+           {
+               return true;
+           }
+           else
+           {
+               //THROW an InvalidImageFileException.
+               throw new InvalidImageFileException("The given Filepath does not present a texture ending with .png or .jpg.");
+           }
+    }
+    
+    public String getModel()
+    {
+        return model;
     }
     
     /**
