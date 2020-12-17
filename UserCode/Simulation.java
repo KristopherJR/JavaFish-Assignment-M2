@@ -32,6 +32,9 @@ public class Simulation
     // DECLARE and INITIALISE an int specifying the number of JavaFish to be added to the scene:
     private int jNumber = 4;
 
+    // DECLARE and INITIALISE an int specifying the number of SeaHorses to be added to the scene:
+    private int sNumber = 4;
+    
     public static void main(String[]args)
     {
         //INITIALISE a new Simulation, call it sim:
@@ -73,6 +76,11 @@ public class Simulation
         for(int i = 0; i < jNumber; i++)
         {
             _displayObjects.add(new JavaFish());
+        }
+        //CREATE a specific number of SeaHorses in a for loop using jNumber. Add them to the _displayObjects List.
+        for(int i = 0; i < sNumber; i++)
+        {
+            _displayObjects.add(new SeaHorse());
         }
     }
 

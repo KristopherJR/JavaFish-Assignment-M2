@@ -8,25 +8,25 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * The test class JavaFishTest.
- * 
- * This Test class is used to test that JavaFish's function and instantiate correctly.
- * 
- * Based on Dr Marc Price's LionTest from his video lesson on Blackboard. 
+ * The test class SeaHorseTest.
  *
+ * This Test class is used to test that SeaHorse's function and instantiate correctly.
+ * 
+ * Based on Dr Marc Price's LionTest from his video lesson on Blackboard.
+ * 
  * @author  Kristopher Randle & Marc Price
- * @version 16-12-2020
+ * @version 17-12-2020
  * 
  * Test Conditions:
- * JavaFish(): CHECK that an OutOfBoundsException is thrown if an invalid scale outside the range 0.225 <= scale <= 0.45 is provided.
- * JavaFish(): CHECK that the speed has been automatically set between 0.005 - 0.05.
+ * SeaHorse(): CHECK that an OutOfBoundsException is thrown if an invalid scale outside the range 0.225 <= scale <= 0.45 is provided.
+ * SeaHorse(): CHECK that the speed has been automatically set between 0.005 - 0.05.
  */
-public class JavaFishTest
+public class SeaHorseTest
 {
     /**
      * Default constructor for test class JavaFishTest
      */
-    public JavaFishTest()
+    public SeaHorseTest()
     {
     }
     
@@ -43,8 +43,8 @@ public class JavaFishTest
     {
         try
         {
-            //CREATE a new JavaFish of type IDisplayObject, call it jf1 and give it a valid scale:
-            IDisplayObject jf1 = new JavaFish(0.225);
+            //CREATE a new SeaHorse of type IDisplayObject, call it sh1 and give it a valid scale:
+            IDisplayObject sh1 = new SeaHorse(0.225);
         }
         catch(OutOfBoundsException e)
         {
@@ -60,8 +60,8 @@ public class JavaFishTest
         boolean pass = false;
         try
         {
-            //CREATE a new JavaFish of type IDisplayObject, call it jf1 and give it an invalid scale which is too small:
-            IDisplayObject jf1 = new JavaFish(0.1);
+            //CREATE a new SeaHorse of type IDisplayObject, call it sh1 and give it an invalid scale which is too small:
+            IDisplayObject sh1 = new SeaHorse(0.1);
         }
         catch(OutOfBoundsException e)
         {
@@ -79,8 +79,8 @@ public class JavaFishTest
         boolean pass = false;
         try
         {
-            //CREATE a new JavaFish of type IDisplayObject, call it jf1 and give it an invalid scale which is too small:
-            IDisplayObject jf1 = new JavaFish(0.5);
+            //CREATE a new SeaHorse of type IDisplayObject, call it sh1 and give it an invalid scale which is too small:
+            IDisplayObject sh1 = new SeaHorse(0.5);
         }
         catch(OutOfBoundsException e)
         {
@@ -95,23 +95,22 @@ public class JavaFishTest
      * TEST CONDITION: CHECK that the scale has been automatically set between 0.005 - 0.05.
      * 
      * Tests:
-     * speedTest: Initialise a JavaFish, then check that they aren't being initalized with a speed outside the range. If they are, test should FAIL.
+     * speedTest: Initialise a SeaHorse, then check that they aren't being initalized with a speed outside the range. If they are, test should FAIL.
      */
-
     @Test
     public void speedTest()
     {
-        //CREATE a new JavaFish with a valid scale, call it jf1:
-        JavaFish jf1 = new JavaFish(0.4);
+        //CREATE a new SeaHorse with a valid scale, call it sh1:
+        SeaHorse sh1 = new SeaHorse(0.4);
         try
         {
             //RUN validateSpeed(), which will throw an exception if the speed isn't in the correct range:
-            jf1.validateSpeed();
+            sh1.validateSpeed();
         }
         catch(OutOfBoundsException e)
         {
             //FAIL if an OutOfBoundsException is thrown:
-            fail(e.getMessage() + " The speed assigned was: " + jf1.getSpeed());
+            fail(e.getMessage() + " The speed assigned was: " + sh1.getSpeed());
         } 
     }
     

@@ -20,8 +20,8 @@ public abstract class Pet extends DisplayObject
     public static double SPEED; //used to store the original unchanged randomly generated speed.
     
     //DECLARE protected variables which subclasses of Pet have access to. Create one for speed, direction and scale of the pet:
-    protected double speed; //The actual speed of the Pet.
-    protected boolean direction; //Used to determine the direction the fish is heading across the screen. If True, it's heading East, If False, It's heading west.
+    protected double xSpeed; //The speed of the Pet about the X axis.
+    protected double ySpeed; //The speed of the Pet about the Y axis.
     protected double scale; //Stores the scale of the Pet provided on creation.
     /**
      * Constructor for objects of class Pet.
@@ -38,7 +38,6 @@ public abstract class Pet extends DisplayObject
        
        //SET the scale and direction instance variables of this Pet:
        this.scale = scale;
-       this.direction = true; //setting the fishes default direction as east.
     } 
     
     /**
@@ -53,7 +52,8 @@ public abstract class Pet extends DisplayObject
     {
         // SET the value of speed to a random speed in the specified client range:
         SPEED = Math.random() * (MAX - MIN) + MIN; //The inital speed is stored in a final double variable. This is needed later for reference when switching directions in the aquarium.
-        speed = SPEED; //set the speed to its initial start-up value.
+        xSpeed = SPEED; //set the speed to its initial start-up value.
+        ySpeed = SPEED;
     }
     
     /**
@@ -65,7 +65,8 @@ public abstract class Pet extends DisplayObject
     {
         // SET the value of speed to a random speed in the specified client range:
         SPEED = 0.005; //The inital speed is stored in a final double variable. This is needed later for reference when switching directions in the aquarium.
-        speed = SPEED; //set the speed  to its initial start-up value.
+        xSpeed = SPEED; //set the speed  to its initial start-up value.
+        ySpeed = SPEED;
     }
     
     /**
@@ -152,7 +153,7 @@ public abstract class Pet extends DisplayObject
     public void validateSpeed() throws OutOfBoundsException
     {
         //IF the speed of this Pet is outside 0.005 - 0.05, throw a new OutOfBoundsException with an error message:
-        if((speed < 0.005) || (speed > 0.05))
+        if((SPEED < 0.005) || (SPEED > 0.05))
         {
             throw new OutOfBoundsException("Pets are being randomly assigned a speed value outside of their specified range (0.005 - 0.05)");
         }        
@@ -165,7 +166,7 @@ public abstract class Pet extends DisplayObject
      */
     public void update()
     {
-        x += speed; //move the token on the X axis by its speed.
+        x += xSpeed; //move the token on the X axis by its speed.
         this.inBounds(); //check if the token is still in the boundaries of the aquarium.
     }
     
@@ -173,27 +174,34 @@ public abstract class Pet extends DisplayObject
      * METHOD: This method is the aquariums main boundary detection system. The "Pets" use this to know if they hit a wall, if they do they will swim in the opposite direction from which they came.
      * 
      * @return  void
-     */
+     */  
     protected void inBounds()
     {
-        //CHECK the direction the Pet is facing, then CHECK if the x and y has surpassed the appropriate aquarium boundary, IF it has, swim the other way:
-        if(direction == true) //if the Pet is heading East.
+        //CHECK that the Pet has not gone past the right wall, if it has, send it back the other way on the x axis:
+        if((this.x >= (SCREEN_WIDTH + 1))) // and it has gone past or hit the East wall or Roof.
         {
-            if((this.x >= (SCREEN_WIDTH + 1)) || (this.y >= SCREEN_HEIGHT)) // and it has gone past or hit the East wall or Roof.
-            {
-                this.speed = -speed; //swim the opposite way.
-                this.rotateY = 90; //face the opposite way.
-                this.direction = false; //state the Pet is now heading West.
-            }
+            this.xSpeed = -xSpeed; //swim the opposite way.
+            this.x = SCREEN_WIDTH + 1; //reset it to the edge of the right wall.
+            this.rotateY = 90; //face the opposite way.
         }
-        else if(direction == false) //if the Pet is heading West.
+        //CHECK that the Pet has not gone past the roof, if it has, send it back the other way on the y axis:
+        else if(this.y >= SCREEN_HEIGHT)
         {
-            if(this.x <= 1 || this.y <= 1) // and it has gone past or hit the West wall or Floor.
-            {
-                this.speed = SPEED; //swim the opposite way.
-                this.rotateY = -90; //face the opposite way.
-                this.direction = true; //state the Pet is now heading East.
-            }
+            this.ySpeed = -ySpeed; //swim the opposite way.
+            this.y = SCREEN_HEIGHT; //reset it to the edge of the roof.
+        }
+        //CHECK that the Pet has not gone past the left wall, if it has, send it back the other way on the x axis:
+        if(this.x <= 1)
+        {
+            this.xSpeed = -xSpeed; //swim the opposite way.
+            this.x = 1; //reset it to the edge of the left wall.
+            this.rotateY = -90; //face the opposite way.
+        }
+        //CHECK that the Pet has not gone past the floor, if it has, send it back the other way on the y axis:
+        else if(this.y <= 1)
+        {
+            this.ySpeed = -ySpeed; //swim the opposite way.
+            this.y = 1; //reset it to the edge of the floor.
         }
     }
 }

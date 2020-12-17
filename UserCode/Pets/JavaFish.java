@@ -26,9 +26,9 @@ public class JavaFish extends Pet
         // PASS the model, texture and scale to the superclass Pet constructor:
         super("models/billboard/billboard.obj", "textures/javaFish/JavaFish.png", scale);
 
-        // INITIALISE position, orientation and speed of fish by calling methods in the superclass:
-        super.setPosition(); //set the x, y of the fish to a random location in the aquarium.
-        super.setOrientation(0,-90,0); //set the orientation.
+        // INITIALISE position, orientation and speed of the JavaFish by calling methods in the superclass:
+        super.setPosition(); //SET the x, y of the JavaFish to a random location in the aquarium.
+        super.setOrientation(0,-90,0); //SET the orientation so that it is the right way up and facing the right direction
         super.setSpeed(MAX_SPEED, MIN_SPEED); //provides the RNG with a minimum and maximum speed for the JavaFish.
     }
     
@@ -44,7 +44,7 @@ public class JavaFish extends Pet
 
         // INITIALISE position, orientation and speed of fish by calling methods in the superclass:
         super.setPosition(); //set the x, y of the fish to a random location in the aquarium.
-        super.setOrientation(0,-90,0); //set the orientation.
+        super.setOrientation(0,-90,0); //SET the orientation so that it is the right way up and facing the right direction.
         super.setSpeed(MAX_SPEED, MIN_SPEED); //provides the RNG with a minimum and maximum speed for the JavaFish.
     }
 }
