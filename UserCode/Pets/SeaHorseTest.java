@@ -15,7 +15,7 @@ import org.junit.Test;
  * Based on Dr Marc Price's LionTest from his video lesson on Blackboard.
  * 
  * @author  Kristopher Randle & Marc Price
- * @version 17-12-2020
+ * @version 18-12-2020
  * 
  * Test Conditions:
  * SeaHorse(): CHECK that an OutOfBoundsException is thrown if an invalid scale outside the range 0.225 <= scale <= 0.45 is provided.
@@ -92,13 +92,15 @@ public class SeaHorseTest
     }
     
     /**
-     * TEST CONDITION: CHECK that the scale has been automatically set between 0.005 - 0.05.
+     * TEST CONDITION: CHECK that the xSpeed and ySpeed has been automatically set between 0.005 - 0.05.
      * 
      * Tests:
-     * speedTest: Initialise a SeaHorse, then check that they aren't being initalized with a speed outside the range. If they are, test should FAIL.
+     * speedTestX: Initialise a SeaHorse, then check that they aren't being initalized with an xSpeed outside the range. If they are, test should FAIL.
+     * speedTestY: Initialise a SeaHorse, then check that they aren't being initalized with a ySpeed outside the range. If they are, test should FAIL.
      */
+
     @Test
-    public void speedTest()
+    public void speedTestX()
     {
         //CREATE a new SeaHorse with a valid scale, call it sh1:
         SeaHorse sh1 = new SeaHorse(0.4);
@@ -110,7 +112,24 @@ public class SeaHorseTest
         catch(OutOfBoundsException e)
         {
             //FAIL if an OutOfBoundsException is thrown:
-            fail(e.getMessage() + " The speed assigned was: " + sh1.getSpeed());
+            fail(e.getMessage() + " The SeaHorse's assigned xSpeed was: " + sh1.getXSpeed());
+        } 
+    }
+    
+    @Test
+    public void speedTestY()
+    {
+        //CREATE a new SeaHorse with a valid scale, call it sh1:
+        SeaHorse sh1 = new SeaHorse(0.4);
+        try
+        {
+            //RUN validateSpeed(), which will throw an exception if the speed isn't in the correct range:
+            sh1.validateSpeed();
+        }
+        catch(OutOfBoundsException e)
+        {
+            //FAIL if an OutOfBoundsException is thrown:
+            fail(e.getMessage() + " The SeaHorse's assigned ySpeed was: " + sh1.getYSpeed());
         } 
     }
     

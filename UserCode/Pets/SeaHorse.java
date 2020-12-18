@@ -6,7 +6,7 @@ package UserCode.Pets;
  * Based on JavaFish from Session 2 on blackboard by Marc Price, edited by Kristopher Randle
  * 
  * @author Marc Price & Kristopher Randle
- * @version 17-12-2020
+ * @version 18-12-2020
  */
 public class SeaHorse extends Pet
 {    
@@ -48,7 +48,8 @@ public class SeaHorse extends Pet
     }
 
     /**
-     * METHOD: Method overriding the "Pet" classes default update method. This is because SeaHorses must move differently to the other instances of the "Pet" class. (Along the Y Axis as well as the X Axis.)
+     * METHOD: Method overriding the "Pet" classes default update method. 
+     * This is because SeaHorses must move differently to the other instances of the "Pet" class. (Along the Y Axis as well as the X Axis.)
      * 
      * @return      void
      */

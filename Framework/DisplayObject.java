@@ -6,10 +6,10 @@ import java.io.File;
 /**
  * The DisplayObject contains all the data for displaying something by a Core instance.
  * 
- * Programmed by Dr Marc Price, exception handling functionality added by Kristopher Randle.
+ * Programmed by Dr Marc Price, refactored by Kristopher Randle.
  * 
  * @author Marc Price & Kristopher Randle 
- * @version 14-12-2020
+ * @version 18-12-2020
  */
 public class DisplayObject implements IDisplayObject
 {
@@ -44,9 +44,9 @@ public class DisplayObject implements IDisplayObject
     public DisplayObject(String model, String tex, double scale) throws OutOfBoundsException
     {
         // IF the received scale is less than 1/20th the window width, or greater than 1/10th the window width THEN throw exception.
-        if((scale < 0.225)||(scale > 0.45))
+        if((scale < 0.01)||(scale > 1.0))
         {
-            throw new OutOfBoundsException("Scale must be greater than or equal to 0.225(1/20th window width), and less than or equal to 0.45(1/10th window width).");
+            throw new OutOfBoundsException("DisplayObjects must be at least 0.01 in scale, and no greater than 1.0 in scale.");
         }
         // ELSE scale is within bounds, so proceed with the construction of the DisplayObject.
         else
@@ -58,7 +58,7 @@ public class DisplayObject implements IDisplayObject
         //CALL this DisplayObjects validateModel method, to check that the model provided is a valid image file:
         if(this.validateModel(model) == true)
         {
-            // VALIDATE provided String 'model' is a .obj file before initalising the object with that model.
+            // VALIDATE provided String 'model' is a .obj file or 'sphere' before initalising the object with that model.
             this.model = model;
         }
         
@@ -81,30 +81,30 @@ public class DisplayObject implements IDisplayObject
      */
     public boolean validateModel(String m) throws InvalidImageFileException
     {
-        //CREATE a file and check that the file is a valid type:
-        if(m.endsWith(".obj"))
+        //CHECK the model String is an accepted file type:
+        if(m.endsWith(".obj") || m.equals("sphere"))
         {
             return true;
         }
+        //THROW an InvalidImageFileException if it isn't a valid type:
         else
         {
-            //THROW an InvalidImageFileException if it isn't a valid type:
             throw new InvalidImageFileException("The given Filepath does not present a model ending with .obj.");
         }
     }
     
     /**
-     * METHOD: Used to check that the String model that was provided is an accepted image type.
+     * METHOD: Used to check that the String texture that was provided is an accepted image type.
      * 
      * @param t     The texture filepath that was provided on creation of the DisplayObject.
      * 
      * @throws InvalidImageFileException
      * 
-     * @return      A true boolean value if the instantiated model is valid.
+     * @return      A true boolean value if the instantiated texture is valid.
      */
     public boolean validateTexture(String t) throws InvalidImageFileException
     {
-        //CREATE a file and check that the file is a valid type:
+        //CHECK the texture String is an accepted file type:
         if(t.endsWith(".png"))
         {
             return true;
@@ -113,11 +113,21 @@ public class DisplayObject implements IDisplayObject
         {
             return true;
         }
+        //THROW an InvalidImageFileException if it isn't a valid type:
         else
-        {
-            //THROW an InvalidImageFileException if it isn't a valid type:
+        {     
             throw new InvalidImageFileException("The given Filepath does not present a texture ending with .png or .jpg.");
         }
+    }
+     
+    public void setX(double newX)
+    {
+        this.x = newX;
+    }
+    
+    public void setY(double newY)
+    {
+        this.y = newY;
     }
     
     /**
@@ -130,6 +140,30 @@ public class DisplayObject implements IDisplayObject
     {
         // GET model and return it:
         return model;
+    }
+    
+    /**
+     * METHOD: GET the x co-ordinate of the DisplayObject.
+     * 
+     * @return      The x co-ordinate of the DisplayObject. 
+     */
+    
+    public double getX()
+    {
+        // GET x and return it:
+        return x;
+    }
+    
+    /**
+     * METHOD: GET the y co-ordinate of the DisplayObject.
+     * 
+     * @return      The y co-ordinate of the DisplayObject. 
+     */
+    
+    public double getY()
+    {
+        // GET y and return it:
+        return y;
     }
     
     /**

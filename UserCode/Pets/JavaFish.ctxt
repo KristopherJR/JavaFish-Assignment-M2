@@ -5,4 +5,6 @@ comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ JavaFish,\ scale\ is\ 
 comment1.params=
 comment1.target=JavaFish()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ JavaFish.\ This\ constructor\ is\ called\ if\ the\ user\ does\ not\ provide\ a\ scale\ for\ the\ JavaFish,\ allowing\ it\ to\ be\ randomly\ assigned\ in\ a\ range.\r\n\ A\ JavaFish's\ position,\ orientation,\ and\ speed\ is\ set\ by\ calling\ methods\ in\ the\ super\ class\ (Pet).\r\n\r\n
-numComments=2
+comment2.params=
+comment2.target=UserCode.Bubble\ getBubble()
+numComments=3

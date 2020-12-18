@@ -15,11 +15,11 @@ import org.junit.Test;
  * Based on Dr Marc Price's LionTest from his video lesson on Blackboard. 
  *
  * @author  Kristopher Randle & Marc Price
- * @version 16-12-2020
+ * @version 18-12-2020
  * 
  * Test Conditions:
  * JavaFish(): CHECK that an OutOfBoundsException is thrown if an invalid scale outside the range 0.225 <= scale <= 0.45 is provided.
- * JavaFish(): CHECK that the speed has been automatically set between 0.005 - 0.05.
+ * JavaFish(): CHECK that the xSpeed and ySpeed has been automatically set between 0.005 - 0.05.
  */
 public class JavaFishTest
 {
@@ -92,26 +92,44 @@ public class JavaFishTest
     }
     
     /**
-     * TEST CONDITION: CHECK that the scale has been automatically set between 0.005 - 0.05.
+     * TEST CONDITION: CHECK that the xSpeed and ySpeed has been automatically set between 0.005 - 0.05.
      * 
      * Tests:
-     * speedTest: Initialise a JavaFish, then check that they aren't being initalized with a speed outside the range. If they are, test should FAIL.
+     * speedTestX: Initialise a JavaFish, then check that they aren't being initalized with an xSpeed outside the range. If they are, test should FAIL.
+     * speedTestY: Initialise a JavaFish, then check that they aren't being initalized with a ySpeed outside the range. If they are, test should FAIL.
      */
 
     @Test
-    public void speedTest()
+    public void speedTestX()
     {
         //CREATE a new JavaFish with a valid scale, call it jf1:
         JavaFish jf1 = new JavaFish(0.4);
         try
         {
-            //RUN validateSpeed(), which will throw an exception if the speed isn't in the correct range:
+            //RUN validateXSpeed(), which will throw an exception if the speed isn't in the correct range:
             jf1.validateSpeed();
         }
         catch(OutOfBoundsException e)
         {
             //FAIL if an OutOfBoundsException is thrown:
-            fail(e.getMessage() + " The speed assigned was: " + jf1.getSpeed());
+            fail(e.getMessage() + " The JavaFish's assigned xSpeed was: " + jf1.getXSpeed());
+        } 
+    }
+
+    @Test
+    public void speedTestY()
+    {
+        //CREATE a new JavaFish with a valid scale, call it jf1:
+        JavaFish jf1 = new JavaFish(0.4);
+        try
+        {
+            //RUN validateYSpeed(), which will throw an exception if the speed isn't in the correct range:
+            jf1.validateSpeed();
+        }
+        catch(OutOfBoundsException e)
+        {
+            //FAIL if an OutOfBoundsException is thrown:
+            fail(e.getMessage() + " The JavaFish's assigned ySpeed was: " + jf1.getYSpeed());
         } 
     }
     

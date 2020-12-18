@@ -19,7 +19,7 @@ import org.junit.Test;
  * 
  * Test Conditions:
  * Urchin(): CHECK that an OutOfBoundsException is thrown if an invalid scale outside the range 0.225 <= scale <= 0.45 is provided.
- * Urchin(): CHECK that the speed has been automatically set between 0.005 - 0.05.
+ * Urchin(): CHECK that the xSpeed and ySpeed has been automatically set between 0.005 - 0.05.
  */
 public class UrchinTest
 {
@@ -92,14 +92,15 @@ public class UrchinTest
     }
     
     /**
-     * TEST CONDITION: CHECK that the scale has been automatically set between 0.005 - 0.05.
+     * TEST CONDITION: CHECK that the xSpeed and ySpeed has been automatically set between 0.005 - 0.05.
      * 
      * Tests:
-     * speedTest: Initialise an Urchin, then check that they aren't being initalized with a speed outside the range. If they are, test should FAIL.
+     * speedTestX: Initialise an Urchin, then check that they aren't being initalized with an xSpeed outside the range. If they are, test should FAIL.
+     * speedTestY: Initialise an Urchin, then check that they aren't being initalized with a ySpeed outside the range. If they are, test should FAIL.
      */
 
     @Test
-    public void speedTest()
+    public void speedTestX()
     {
         //CREATE a new Urchin with a valid scale, call it u1:
         Urchin u1 = new Urchin(0.4);
@@ -111,9 +112,26 @@ public class UrchinTest
         catch(OutOfBoundsException e)
         {
             //FAIL if an OutOfBoundsException is thrown:
-            fail(e.getMessage() + " The speed assigned was: " + u1.getSpeed());
+            fail(e.getMessage() + " The Urchins assigned xSpeed was: " + u1.getXSpeed());
         } 
     }
+    
+    @Test
+    public void speedTestY()
+    {
+        //CREATE a new Urchin with a valid scale, call it u1:
+        Urchin u1 = new Urchin(0.4);
+        try
+        {
+            //RUN validateSpeed(), which will throw an exception if the speed isn't in the correct range:
+            u1.validateSpeed();
+        }
+        catch(OutOfBoundsException e)
+        {
+            //FAIL if an OutOfBoundsException is thrown:
+            fail(e.getMessage() + " The Urchins assigned ySpeed was: " + u1.getYSpeed());
+        } 
+    }    
     
     /**
      * Sets up the test fixture.
