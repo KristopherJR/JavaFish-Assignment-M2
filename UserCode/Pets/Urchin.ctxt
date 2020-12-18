@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=scale
+comment0.target=Urchin(double)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Urchin,\ scale\ is\ passed\ to\ the\ Parent\ class,\ Pet.\ An\ Urchin's\ position,\ orientation\ and\ speed\ is\ set\ by\ calling\ methods\ in\ the\ super\ class\ (Pet).\r\n\ \r\n\ @param\ scale\ \ \ \ \ The\ scale\ (size)\ of\ the\ Urchin.\ Must\ be\ 0.225\ <\=\ scale\ <\=\ 0.45.\ Passed\ up\ to\ Pet.\r\n
+comment1.params=
+comment1.target=Urchin()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Urchin.\ This\ constructor\ is\ called\ if\ the\ user\ does\ not\ provide\ a\ scale\ for\ the\ Urchin,\ allowing\ it\ to\ be\ randomly\ assigned\ in\ a\ range.\r\n\ An\ Urchin's\ position,\ orientation,\ and\ speed\ is\ set\ by\ calling\ methods\ in\ the\ super\ class\ (Pet).\r\n\r\n
+comment2.params=
+comment2.target=void\ setPosition()
+comment2.text=\r\n\ METHOD\:\ Method\ overriding\ the\ "Pet"\ classes\ default\ setPosition()\ method.\r\n\ This\ is\ because\ Urchin\ must\ sit\ at\ the\ bottom\ of\ the\ aquarium\ and\ not\ have\ a\ randomly\ assigned\ position.\r\n\ \r\n\ It\ still\ calls\ the\ other\ version\ of\ "Pet"\ classes\ setPosition(),\ which\ takes\ parameters\ to\ set\ a\ specified\ location.\r\n\ \r\n\ @return\ \ \ \ \ \ void\r\n
+numComments=3

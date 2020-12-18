@@ -178,7 +178,7 @@ public abstract class Pet extends DisplayObject
     protected void inBounds()
     {
         //CHECK that the Pet has not gone past the right wall, if it has, send it back the other way on the x axis:
-        if((this.x >= (SCREEN_WIDTH + 1))) // and it has gone past or hit the East wall or Roof.
+        if((this.x >= (SCREEN_WIDTH + 1)))
         {
             this.xSpeed = -xSpeed; //swim the opposite way.
             this.x = SCREEN_WIDTH + 1; //reset it to the edge of the right wall.
