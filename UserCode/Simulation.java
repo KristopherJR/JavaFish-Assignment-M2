@@ -35,6 +35,9 @@ public class Simulation
     // DECLARE a reference to the instance of 'List<Bubble>', call it '_bubbles'. Used to store all objects of type 'Bubble':
     private List<Bubble> _bubbles;
     
+    // DECLARE a reference to the instance of 'List<SoundEffect>', call it '_bubbleSoundEffects'. Used to store all objects of type '_bubbleSoundEffects':
+    private List<SoundEffect> _bubbleSoundEffects;
+    
     // DECLARE an int called jNumber, used for specifying the number of JavaFish to be added to the scene:
     private int jNumber;
 
@@ -42,15 +45,16 @@ public class Simulation
     private int sNumber;
     
     // DECLARE an int called uNumber, used for specifying the number of Urchins to be added to the scene:
-    private int uNumber;
+    private int uNumber;    
     public static void main(String[]args)
     {
         //INITIALISE a new Simulation, call it sim:
         Simulation sim = new Simulation();
-        //RUN the simulation start-up code within a try-catch block to catch the potential exceptions that populateObjectArray() could throw:
+        //RUN the simulation start-up code within a try-catch block to catch the potential exceptions that could be thrown:
         try
         {
             sim.populateObjectArray();
+            sim.populateSoundEffectArray();
             sim.populate();
             sim.run();
         }
@@ -71,6 +75,7 @@ public class Simulation
         _displayObjects = new ArrayList<IDisplayObject>(); //INITIALISE _displayObjects, store as a dynamic ArrayList containing objects of type 'IDisplayOject'.
         _javaFish = new ArrayList<JavaFish>(); //INITIALISE _javaFish, store as a dynamic ArrayList containing objects of type 'JavaFish'.
         _bubbles = new ArrayList<Bubble>(); //INITIALISE _bubbles, store as a dynamic ArrayList containing objects of type 'Bubble'.
+        _bubbleSoundEffects = new ArrayList<SoundEffect>(); //INITIALISE _bubbleSoundEffects, store as a dynamic ArrayList containing objects of type 'SoundEffect'.
         
         jNumber = 4; //INITIALISE jNumber, this specifies that 4 'JavaFish' objects will be added to the aquarium.
         sNumber = 4; //INITIALISE sNumber, this specifies that 4 'SeaHorse' objects will be added to the aquarium.
@@ -109,6 +114,46 @@ public class Simulation
             _displayObjects.add(new Urchin());
         }
     }
+    
+    /**
+     * METHOD: Declares and Initalises all sound effects to be added to _bubbleSoundEffects List. In this case, there are 5 different sound effects for a bubble being
+     * emitting from a JavaFish.
+     * 
+     * Called on running the static main method.
+     *
+     * @return void
+     */    
+    public void populateSoundEffectArray()
+    {
+        //INITIALISE all sound effects as type 'SoundEffect':
+        SoundEffect bubble_emit1 = new SoundEffect("sfx/bubble_emit1.wav");
+        SoundEffect bubble_emit2 = new SoundEffect("sfx/bubble_emit2.wav"); 
+        SoundEffect bubble_emit3 = new SoundEffect("sfx/bubble_emit3.wav"); 
+        SoundEffect bubble_emit4 = new SoundEffect("sfx/bubble_emit4.wav"); 
+        SoundEffect bubble_emit5 = new SoundEffect("sfx/bubble_emit5.wav"); 
+        
+        //ADD each 'SoundEffect' to the _bubbleSoundEffects List:
+        _bubbleSoundEffects.add(bubble_emit1);
+        _bubbleSoundEffects.add(bubble_emit2);
+        _bubbleSoundEffects.add(bubble_emit3);
+        _bubbleSoundEffects.add(bubble_emit4);
+        _bubbleSoundEffects.add(bubble_emit5);
+    }
+    
+    /**
+     * METHOD: This method will play a random sound effect everytime it is called from the '_bubbleSoundEffects' List.
+     * 
+     * Called from the programs main Run loop, each time 'resetBubbles()' is called. (Only once a 'Bubble' is reset to a JavaFish's mouth.)
+     * 
+     * @return void
+     */
+    public void playRandomSoundEffect()
+    {
+        //DECLARE int i, generate a random number between 0 - _bubbleSoundEffects.size() - Store it in i:
+        int i = (int)(_bubbleSoundEffects.size() * Math.random()); //code snippet from https://javarevisited.blogspot.com/2013/05/how-to-generate-random-numbers-in-java-between-range.html#:~:text=If%20you%20want%20to%20create,that%20number%20into%20int%20later.
+        //PLAY a random sound effect from the _bubbleSoundEffects List at index i:
+        _bubbleSoundEffects.get(i).playSoundEffect();
+    }
 
     /**
      * METHOD: populate the scene with all objects
@@ -125,7 +170,7 @@ public class Simulation
             _core.addDisplayObject(_displayObjects.get(i)); //add all elements of _displayObjects to the aquarium.
         }
     }
-        
+      
     /**
      * METHOD: This method is used to reset all of the bubbles that have been added to scene once they float past the roof.
      * They use the reference to all JavaFish stored in _javaFish to get the current x and y of each JavaFish.
@@ -139,7 +184,7 @@ public class Simulation
     {
         // LOOP for the amount of Bubble objects that exist:
         for(int i = 0; i < _bubbles.size(); i++)
-        {
+        { 
             //IF a Bubble has risen past the top of the screen:
             if((_bubbles.get(i).getY()) > Pet.SCREEN_HEIGHT + 2) 
             {
@@ -150,6 +195,8 @@ public class Simulation
                     _bubbles.get(i).setX(_javaFish.get(i).getX() + _javaFish.get(i).getScale());
                     //SET the current Bubbles Y co-ordinate to it's corresponding JavaFish's current Y co-ordinate:
                     _bubbles.get(i).setY(_javaFish.get(i).getY());
+                    //PLAY a random bubble sound effect once the bubble has rest to the JavaFish's mouth:
+                    this.playRandomSoundEffect();
                 }
                 //AND the JavaFish is swimming LEFT:
                 if(_javaFish.get(i).getDirection() == false) 
@@ -158,6 +205,8 @@ public class Simulation
                     _bubbles.get(i).setX(_javaFish.get(i).getX() - _javaFish.get(i).getScale());
                     //SET the current Bubbles Y co-ordinate to it's corresponding JavaFish's current Y co-ordinate:
                     _bubbles.get(i).setY(_javaFish.get(i).getY());
+                    //PLAY a random bubble sound effect once the bubble has rest to the JavaFish's mouth:
+                    this.playRandomSoundEffect();
                 }
             }
         }        
