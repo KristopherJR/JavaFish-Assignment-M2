@@ -41,12 +41,12 @@ public abstract class Pet extends DisplayObject
        //CALL the super constructor for Pet, passing in the parameters received from each child class:
        super(model, tex, scale);
        
-       // IF the received scale is less than 1/20th the window width, or greater than 1/10th the window width THEN throw exception.
+       // IF the received scale is less than 1/20th the window width, or greater than 1/10th the window width THEN throw exception:
        if((scale < 0.225)||(scale > 0.45))
        {
            throw new OutOfBoundsException("A Pets scale must be greater than or equal to 0.225(1/20th window width), and less than or equal to 0.45(1/10th window width).");
        }
-       // ELSE scale is within bounds, so proceed with the construction of the DisplayObject.
+       // ELSE scale is within bounds, so proceed with the construction of the DisplayObject:
        else
        {
            // Scale is within acceptable range, so initialise scale instance variable.

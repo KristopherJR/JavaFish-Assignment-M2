@@ -79,7 +79,7 @@ public class JavaFishTest
         boolean pass = false;
         try
         {
-            //CREATE a new JavaFish of type IDisplayObject, call it jf1 and give it an invalid scale which is too small:
+            //CREATE a new JavaFish of type IDisplayObject, call it jf1 and give it an invalid scale which is too big:
             IDisplayObject jf1 = new JavaFish(0.5);
         }
         catch(OutOfBoundsException e)

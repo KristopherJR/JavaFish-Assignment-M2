@@ -4,7 +4,7 @@ package UserCode.Exceptions;
  * Thrown if a String containing a file path does not lead to an image file.
  * 
  * @author Kristopher Randle
- * @version 16-12-2020
+ * @version 18-12-2020
  */
 public class InvalidImageFileException extends RuntimeException
 {

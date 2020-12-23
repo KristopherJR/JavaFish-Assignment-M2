@@ -79,7 +79,7 @@ public class SeaHorseTest
         boolean pass = false;
         try
         {
-            //CREATE a new SeaHorse of type IDisplayObject, call it sh1 and give it an invalid scale which is too small:
+            //CREATE a new SeaHorse of type IDisplayObject, call it sh1 and give it an invalid scale which is too big:
             IDisplayObject sh1 = new SeaHorse(0.5);
         }
         catch(OutOfBoundsException e)

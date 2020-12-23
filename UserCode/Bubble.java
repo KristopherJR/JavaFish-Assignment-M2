@@ -2,6 +2,7 @@ package UserCode;
 
 import java.util.*;
 import UserCode.Pets.*;
+import UserCode.Exceptions.*;
 import Framework.*;
 /**
  * Bubbles contains all of the code needed to represent a Bubble to be placed in the Aquarium. Bubble is a subclass of DisplayObject, inheriting it's fields and methods.
@@ -23,14 +24,24 @@ public class Bubble extends DisplayObject
      * @param ypos      The starting y position of the Bubble in the aquarium.
      * @param scale     The scale (size) of the Bubble.
      */
-    public Bubble(double x, double y, double scale)
+    public Bubble(double x, double y, double scale) throws OutOfBoundsException
     {
-        // INITIALISE instance variables:
+       // INITIALISE instance variables by calling the super constructor:
         super("sphere", "textures/javaFish/Bubble.png", scale);
-        this.floatSpeed = 0.01;
-        
-        // INITIALISE the start Position of the Bubble to that of it's JavaFish:
-        this.setPosition(x,y,1.0);
+       // IF the received scale is not in the range 0.05625 <= scale <= 0.1125 THEN throw exception:
+       if((scale < 0.05625)||(scale > 0.1125))
+       {
+           throw new OutOfBoundsException("A Bubbles Scale must be within 25% of a JavaFish's scale range. (0.05625 <= bubbleScale <= 0.1125)");
+       }
+       // ELSE scale is within bounds, so proceed with the construction of the DisplayObject (Bubble):
+       else
+       {
+           // Scale is within acceptable range, so initialise the rest of the Instance Variables:
+           this.scale = scale;
+           this.floatSpeed = 0.01;
+           this.setPosition(x,y,1.0); //SET the start Position of the Bubble to that of it's JavaFish.
+       }        
+
     }
     
     /**

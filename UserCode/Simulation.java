@@ -35,7 +35,7 @@ public class Simulation
     // DECLARE a reference to the instance of 'List<Bubble>', call it '_bubbles'. Used to store all objects of type 'Bubble':
     private List<Bubble> _bubbles;
     
-    // DECLARE a reference to the instance of 'List<SoundEffect>', call it '_bubbleSoundEffects'. Used to store all objects of type '_bubbleSoundEffects':
+    // DECLARE a reference to the instance of 'List<SoundEffect>', call it '_bubbleSoundEffects'. Used to store all objects of type 'SoundEffect':
     private List<SoundEffect> _bubbleSoundEffects;
     
     // DECLARE an int called jNumber, used for specifying the number of JavaFish to be added to the scene:
@@ -232,7 +232,7 @@ public class Simulation
                 // SET: render loop exit condition
                 endSim = true;
             }            
-            // UPDATE Objects in 3D world:        
+            // UPDATE Objects in 3D world:
             // RENDER STAGE
             this.resetBubbles();
             // UPDATE: the environment

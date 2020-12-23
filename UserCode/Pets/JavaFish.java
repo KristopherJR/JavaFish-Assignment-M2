@@ -36,8 +36,8 @@ public class JavaFish extends Pet
        super.setOrientation(0,-90,0); //SET the orientation so that it is the right way up and facing the right direction
        super.setSpeed(MAX_SPEED, MIN_SPEED); //provides the RNG with a minimum and maximum speed for the JavaFish.
         
-       // INITIALISE bubble as a Bubble, set it's x and y to that of the JavaFish:
-       bubbleScale = scale * 0.025;
+       // INITIALISE bubbleScale to 25% of the JavaFish' scale:
+       bubbleScale = scale * 0.25;
    }
     
    /**
@@ -55,7 +55,7 @@ public class JavaFish extends Pet
        super.setOrientation(0,-90,0); //SET the orientation so that it is the right way up and facing the right direction.
        super.setSpeed(MAX_SPEED, MIN_SPEED); //provides the RNG with a minimum and maximum speed for the JavaFish.
        
-       // INITIALISE bubble as a Bubble, set it's x and y to that of the JavaFish:
+       // INITIALISE bubbleScale to 25% of the JavaFish' scale:
        bubbleScale = scale * 0.25;
    }
    
@@ -63,5 +63,5 @@ public class JavaFish extends Pet
    {
        Bubble b = new Bubble(x,y,bubbleScale);
        return b;
-   }
+   }   
 }
