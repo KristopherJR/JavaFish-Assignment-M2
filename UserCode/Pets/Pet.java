@@ -206,6 +206,7 @@ public abstract class Pet extends DisplayObject
      */
     public boolean getDirection()
     {
+        // GET direction and return it:
         return direction;
     }
     

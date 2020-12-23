@@ -6,6 +6,8 @@ import javax.sound.sampled.*;
  * SoundEffect class handles all operations required to play an audible sound within a program. 
  * This class was based on this video tutorial: https://www.youtube.com/watch?v=qPVkRtuf9CQ
  * 
+ * Sound effect samples obtained from https://www.zapsplat.com and used in accordance to their standard licensing.
+ * 
  * @author Kristopher Randle & RyiSnow
  * @version 19-12-2020
  */

@@ -53,20 +53,20 @@ C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Simulation.java:126: warning -
 C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Simulation.java:183: warning - @return tag cannot be used in method with void return type.
 C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Simulation.java:220: warning - @return tag cannot be used in method with void return type.
 Generating C:\Users\krist\Desktop\JF2 - Milestone 2\doc\UserCode\SoundEffect.html...
-C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\SoundEffect.java:51: warning - @return tag cannot be used in method with void return type.
+C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\SoundEffect.java:53: warning - @return tag cannot be used in method with void return type.
 Generating C:\Users\krist\Desktop\JF2 - Milestone 2\doc\UserCode\Pets\JavaFish.html...
 Generating C:\Users\krist\Desktop\JF2 - Milestone 2\doc\UserCode\Pets\JavaFishTest.html...
 Generating C:\Users\krist\Desktop\JF2 - Milestone 2\doc\UserCode\Pets\Pet.html...
-C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Pets\Pet.java:250: warning - @return tag cannot be used in method with void return type.
-C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Pets\Pet.java:261: warning - @return tag cannot be used in method with void return type.
-C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Pets\Pet.java:273: warning - @return tag cannot be used in method with void return type.
+C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Pets\Pet.java:251: warning - @return tag cannot be used in method with void return type.
+C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Pets\Pet.java:262: warning - @return tag cannot be used in method with void return type.
+C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Pets\Pet.java:274: warning - @return tag cannot be used in method with void return type.
 C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Pets\Pet.java:137: warning - @return tag cannot be used in method with void return type.
 C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Pets\Pet.java:122: warning - @return tag cannot be used in method with void return type.
 C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Pets\Pet.java:106: warning - @return tag cannot be used in method with void return type.
 C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Pets\Pet.java:84: warning - @return tag cannot be used in method with void return type.
 C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Pets\Pet.java:65: warning - @return tag cannot be used in method with void return type.
-C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Pets\Pet.java:239: warning - @return tag cannot be used in method with void return type.
-C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Pets\Pet.java:220: warning - @return tag cannot be used in method with void return type.
+C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Pets\Pet.java:240: warning - @return tag cannot be used in method with void return type.
+C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Pets\Pet.java:221: warning - @return tag cannot be used in method with void return type.
 Generating C:\Users\krist\Desktop\JF2 - Milestone 2\doc\UserCode\Pets\SeaHorse.html...
 C:\Users\krist\Desktop\JF2 - Milestone 2\UserCode\Pets\SeaHorse.java:56: warning - @return tag cannot be used in method with void return type.
 Generating C:\Users\krist\Desktop\JF2 - Milestone 2\doc\UserCode\Pets\SeaHorseTest.html...
